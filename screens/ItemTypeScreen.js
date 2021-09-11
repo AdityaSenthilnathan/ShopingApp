@@ -7,11 +7,12 @@ export default class AppHeader extends React.Component {
     render(){
         return(
             <View style = {{marginTop: 61}}>
-            <Header
-            leftComponent = {<Icon name='bars' type='font-awesome' color='#696969'  />}
-            centerComponent = {<Text style = {{fontSize: 27}}>ShopingApp</Text>}
-           rightComponent = { <Icon name='shopping-cart' type='font-awesome' color='#696969'  />}
-            ></Header>
+                <Text>Shoping App Choose Catagory</Text>
+           <TouchableOpacity><Text>School Suplies</Text></TouchableOpacity>
+           <TouchableOpacity><Text>Books</Text></TouchableOpacity>
+           <TouchableOpacity><Text>Handmade</Text></TouchableOpacity>
+           <TouchableOpacity><Text>Tools</Text></TouchableOpacity>
+           <TouchableOpacity><Text>kithen utensils/bakeware</Text></TouchableOpacity>
             </View>
         )
     
@@ -28,7 +29,6 @@ const styles = StyleSheet.create({
     },
     Cart: {
         marginTop: -15,
-        textSize: 23,
         marginLeft: 1200,
 
     }
