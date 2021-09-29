@@ -44,14 +44,14 @@ export default class LoginScreen extends React.Component {
         )
     }   
     login = async (email, password) => {
-        alert('navigating')
+
         if (email && password) {
             try {
                 const response = await firebase.auth().signInWithEmailAndPassword(email, password)
 
                 if (response) {
-                   
-                    this.props.navigation.navigate('BuyScreen')
+                    //alert('navigating')
+                    this.props.navigation.navigate('HomePage')
                 }
             }
             catch (error) {
@@ -75,16 +75,16 @@ export default class LoginScreen extends React.Component {
             <View>
               <AppHeader></AppHeader>
                 {this.showModel()}
-                <Text>ShopingApp</Text>
+                <Text style = {styles.Texts}>ShopingApp</Text>
         
-                <Text>Email</Text>
-                <TextInput onChangeText={(text) => {() => this.setState({ Email: text }) }} placeholder='Enter your email here' keyboardType={'email-address'}></TextInput>
-                <Text>Password</Text>
-                <TextInput onChangeText={(text) => {() => this.setState({ Password: text }) }} placeholder='Enter your password here' secureTextEntry={true}></TextInput>
+                <Text style = {styles.Texts}>Email</Text>
+                <TextInput  value = {this.state.Email}onChangeText={(text) => {this.setState({ Email: text }) }} placeholder='Enter your email here' keyboardType={'email-address'}></TextInput>
+                <Text style = {styles.Texts}>Password</Text>
+                <TextInput value = {this.state.Password} onChangeText={(text) => {this.setState({ Password: text }) }} placeholder='Enter your password here' secureTextEntry={true}></TextInput>
 
-                <TouchableOpacity onPress = {() => {this.login(this.state.Email, this.state.Password) }}><Text>Login</Text></TouchableOpacity>
+                <TouchableOpacity onPress = {() => {this.login(this.state.Email, this.state.Password) }}><Text style = {styles.Texts}>Login</Text></TouchableOpacity>
                 <View>
-                    <TouchableOpacity onPress = {() => {this.setState({ ModelIsVisible: true })}}><Text>Sign Up</Text></TouchableOpacity>
+                    <TouchableOpacity onPress = {() => {this.setState({ ModelIsVisible: true })}}><Text style = {styles.Texts}>Sign Up</Text></TouchableOpacity>
                 </View>
             </View>
         )
@@ -125,5 +125,9 @@ export default class LoginScreen extends React.Component {
         marginLeft: 100,
         backgroundColor: 'white',
         borderWidth: 4
+    },
+    Texts: {
+        fontSize: 20,
+        color: 'Blue'
     }
 })

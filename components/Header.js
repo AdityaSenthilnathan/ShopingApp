@@ -8,7 +8,7 @@ export default class AppHeader extends React.Component {
         return(
             <View style = {{marginTop: 61}}>
             <Header
-            leftComponent = {<Icon name='bars' type='font-awesome' color='#696969'  />}
+            leftComponent = {<Icon name='bars' type='font-awesome' color='#696969'  onPress={() => this.props.navigation.toggleDrawer()}/>}  
             centerComponent = {<Text style = {{fontSize: 27}}>ShopingApp</Text>}
            rightComponent = { <Icon name='shopping-cart' type='font-awesome' color='#696969'  />}
             ></Header>
@@ -28,7 +28,6 @@ const styles = StyleSheet.create({
     },
     Cart: {
         marginTop: -15,
-        textSize: 23,
         marginLeft: 1200,
 
     }
